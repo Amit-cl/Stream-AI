@@ -1,12 +1,27 @@
-# StreamAi 
- - Initial setup
- - Routing
- - Tailwind
- - React Svg
- - Header
+# StreamAi GPT
 
+- Create React App
+- Configured TailwindCSS
+- Header
+- Routing of App
+- Login Form
+- Sign up Form
+- Form Validation
+- useRef Hook
+. firebase setup
 
+# Features
 
-# Feature 
- 
-
+- Login/Sign Up
+  - Sign In / Sign up Form
+  - redirect to Browse Page
+- Browse (after authentication)
+  - Header
+  - Main Movie
+    - Trailer in Background
+    - Title & Description
+    - MovieSuggestions
+      - MovieLists * N
+- StreamAi
+  - Search Bar
+  - Movie Suggestions
