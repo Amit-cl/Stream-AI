@@ -8,20 +8,17 @@ const VedioBackground = ({ id }) => {
 
   useMovieTrailer(id)
   return (
-   <div className="absolute top-0 left-0 -z-10 w-screen h-screen overflow-hidden">
+ <div className=" w-screen h-screen overflow-hidden">
   <iframe
-    className="w-full h-full scale-125"
-    width="560"
-    height="315"
-   src={
-  'https://www.youtube.com/embed/' +
-  trailerVedio?.key +
-  '?autoplay=1&mute=1&controls=0&loop=1&playlist=' +
-  trailerVedio?.key
-}
-
-  />
+    className=" scale-130 w-screen h-screen object-cover"
+    src={`https://www.youtube.com/embed/${trailerVedio?.key}?autoplay=1&mute=1&controls=0&loop=1&playlist=${trailerVedio?.key}`}
+    title="YouTube video player"
+    allow="autoplay; encrypted-media"
+  ></iframe>
 </div>
+
+
+
 
   )
 }

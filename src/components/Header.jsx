@@ -40,13 +40,14 @@ useEffect(() => {
 
   return (
     <div
-      className="absolute flex justify-between px-8 py-3 w-screen z-20 
+      className="absolute flex justify-between px-8 py-1 w-screen z-1
       bg-linear-to-b from-black/90 via-black/60 to-transparent"
     >
       <StreamAiLogo />
 
       {user && (
         <div className=" flex m-4">
+          <button className='py-2 px-3 m-2 bg-white/80 rounded-lg hover:bg-white/50'>GPT Search</button>
           <img
             className="w-12 h-12 m-2"
             src={user.photoURL}

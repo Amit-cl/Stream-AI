@@ -8,11 +8,11 @@ const MainCointainer = () => {
   const movies = useSelector((store) => store.movies?.nowPlayingMovies)
 
   if (!movies) return null
-   console.log(movies[0]);
+  //  console.log(movies[0]);
   const { id,original_title, overview } = movies[0]
 
   return (
-    <div>
+    <div className='overflow-hidden bg-white'>
       <VedioTitle title={original_title} overview={overview} id={id}  />
       <VedioBackground id={id} />
     </div>
