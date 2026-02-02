@@ -7,22 +7,26 @@ import usePopularMovies from '../hooks/usePopularMovies'
 import useTopRatedMovies from '../hooks/useTopRatedMovies'
 import useUpcomingMovies from '../hooks/useUpcomingMovies'
 import GptSearch from './GptSearch'
-
+import { useSelector } from 'react-redux'
 
 const Home = () => {
+  useNowPlayingMovies()
+  usePopularMovies()
+  useTopRatedMovies()
+  useUpcomingMovies()
 
-useNowPlayingMovies()
-usePopularMovies()
-useTopRatedMovies()
-useUpcomingMovies()
-
+  const toggle = useSelector((store) => store.gpt.showGptSearch)
   return (
     <div>
       <Header />
-      <GptSearch/>
-      <MainCointainer/>
-      <SecondaryContainer/>
- 
+      {toggle ? (
+        <GptSearch />
+      ) : (
+        <>
+          <MainCointainer />
+           <SecondaryContainer />
+        </>
+      )}
     </div>
   )
 }

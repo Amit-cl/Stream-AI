@@ -10,6 +10,7 @@ import { auth } from '../utils/firebase'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { addUser } from '../utils/userSlice'
+import { USER_AVATAR } from '../utils/constant'
 
 const Form = () => {
   const [isSignInForm, setIsSignInForm] = useState(true)
@@ -42,7 +43,7 @@ const Form = () => {
           updateProfile(user, {
             displayName: name.current.value,
             photoURL:
-              'https://media.licdn.com/dms/image/v2/D5603AQFxq7DuKgExzw/profile-displayphoto-scale_400_400/B56ZwFrIXZIUAg-/0/1769621719961?e=1771459200&v=beta&t=G4mNw7HDcVVtlUaDQksbATpMAHZ6c6lZ0OJPB0leySM',
+              USER_AVATAR,
           })
             .then(() => {
               const { uid, email, displayName, photoURL } = auth.currentUser

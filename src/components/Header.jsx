@@ -5,13 +5,18 @@ import { onAuthStateChanged, signOut } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { addUser,removeUser } from '../utils/userSlice'
+import { toggleGptSearchView } from '../utils/gptSlice'
 
 
 const Header = () => {
   const navigate = useNavigate()
   const user = useSelector((store) => store.user)
   const dispatch=useDispatch();
+  // const toggle=useSelector((store)=>store.gpt)
 
+  const handleToggle=()=>{
+    dispatch(toggleGptSearchView())
+  }
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
@@ -47,7 +52,9 @@ useEffect(() => {
 
       {user && (
         <div className=" flex m-4">
-          <button className='py-2 px-3 m-2 bg-white/80 rounded-lg hover:bg-white/50'>GPT Search</button>
+          <button 
+          onClick={handleToggle}
+          className='py-2 px-3 m-2 bg-white/80 rounded-lg hover:bg-white/50'>GPT Search</button>
           <img
             className="w-12 h-12 m-2"
             src={user.photoURL}
@@ -55,9 +62,9 @@ useEffect(() => {
           />
           <button
             onClick={handleSignOut}
-            className="font-bold text-white cursor-pointer"
+            className="font-bold text-white cursor-pointer  0"
           >
-            (Sign Out){' '}
+            Sign Out
           </button>
         </div>
       )}
