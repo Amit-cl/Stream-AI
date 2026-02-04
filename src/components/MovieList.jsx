@@ -7,8 +7,7 @@ const MovieList = ({ title, movies }) => {
     <div className="px-6 py-1">
   <div className="inline-block relative">
     {/* title mask */}
-    <div className="absolute inset-0 px-5 -py-1
-                    bg-black/60 backdrop-blur-md
+    <div className="absolute inset-0 px-5 -py-1 bg-black/60 
                     rounded-md" />
 
     <h1 className="relative text-white text-2xl font-semibold px-5 py-1">
