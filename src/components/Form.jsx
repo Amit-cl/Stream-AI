@@ -86,63 +86,84 @@ const Form = () => {
     }
   }
 
-  return (
-    <div>
-      <Header />
-      <div>
-        <img
-          className="absolute"
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/6d631aa6-567d-46ef-a644-b5b00e4334d2/web/IN-en-20251215-TRIFECTA-perspective_f1cab02a-e42b-4913-a7d9-c5fe0f94f68d_large.jpg"
-          alt="body"
-        />
-      </div>
+ return (
+  <div className="relative min-h-screen w-full overflow-x-hidden">
+    <Header />
+
+    {/* Background */}
+    <div className="absolute inset-0 -z-10">
+      <img
+        className="w-full h-full object-cover"
+        src="https://assets.nflxext.com/ffe/siteui/vlv3/6d631aa6-567d-46ef-a644-b5b00e4334d2/web/IN-en-20251215-TRIFECTA-perspective_f1cab02a-e42b-4913-a7d9-c5fe0f94f68d_large.jpg"
+        alt="body"
+      />
+    </div>
+
+    {/* Form Wrapper */}
+    <div className="flex justify-center pt-20 sm:pt-24">
       <form
         onSubmit={(e) => e.preventDefault()}
-        className=" text-white fixed p-12 w-3/12 bg-black/80 mx-auto left-0 right-0  top-10 "
+        className="
+          text-white bg-black/80
+          w-full max-w-md
+          mx-4
+          p-6 sm:p-8
+          rounded
+        "
       >
-        <h1 className="font-bold text-3xl text-white py-4">
+        <h1 className="font-bold text-2xl sm:text-3xl py-4">
           {isSignInForm ? 'Sign In' : 'Sign Up'}
         </h1>
+
         {!isSignInForm && (
           <input
             ref={name}
             type="text"
             placeholder="Full Name"
-            className="p-3 my-4 bg-gray-700 w-full "
+            className="p-3 my-3 sm:my-4 bg-gray-700 w-full rounded"
           />
         )}
+
         <input
           ref={email}
           type="text"
           placeholder="Email Address"
-          className="p-3 my-4 bg-gray-700 w-full "
+          className="p-3 my-3 sm:my-4 bg-gray-700 w-full rounded"
         />
+
         <input
           ref={password}
           type="password"
           placeholder="Password"
-          className="p-3 my-4 bg-gray-700  w-full"
+          className="p-3 my-3 sm:my-4 bg-gray-700 w-full rounded"
         />
+
         {errorMessage && (
-          <p className="text-sm md:text-base text-red-600 rounded  shadow">
+          <p className="text-sm sm:text-base text-red-600 mt-2">
             {errorMessage}
           </p>
         )}
 
         <button
-          className="bg-red-500 w-full p-3 my-6"
+          className="bg-red-500 w-full p-3 my-5 sm:my-6 rounded hover:bg-red-600"
           onClick={handleButtonClick}
         >
           {isSignInForm ? 'Sign In' : 'Sign Up'}
         </button>
-        <p onClick={toggleSignInForm} className="cursor-pointer text-sm">
+
+        <p
+          onClick={toggleSignInForm}
+          className="cursor-pointer text-sm text-gray-300 hover:text-white"
+        >
           {isSignInForm
             ? 'New to Netflix? Sign Up Now'
-            : 'Already a User?Please Sign In'}
+            : 'Already a User? Please Sign In'}
         </p>
       </form>
     </div>
-  )
+  </div>
+)
+
 }
 
 export default Form

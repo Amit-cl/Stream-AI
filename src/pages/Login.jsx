@@ -3,9 +3,10 @@ import Form from '../components/Form'
 
 const Login = () => {
   return (
-    <>
-    <Form />
-    </>
+  <div className="min-h-screen w-full overflow-x-hidden">
+  <Form />
+</div>
+
   )
 }
 
