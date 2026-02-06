@@ -12,10 +12,13 @@ const MainCointainer = () => {
   const { id,original_title, overview } = movies[0]
 
   return (
-    <div className='overflow-hidden bg-white'>
-      <VedioTitle title={original_title} overview={overview} id={id}  />
-      <VedioBackground id={id} />
-    </div>
+ <div className="
+  relative bg-black min-h-[70vh] sm:min-h-[80vh] md:min-h-screen
+  overflow-hidden
+">
+  <VedioBackground id={id} />
+  <VedioTitle title={original_title} overview={overview} id={id} />
+</div>
   )
 }
 export default MainCointainer

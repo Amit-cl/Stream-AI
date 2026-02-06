@@ -6,6 +6,7 @@ import { addMovieLogo } from '../utils/moviesSlice'
 const useMovieLogo = (id) => {
   const dispatch = useDispatch()
   const logoData = useSelector((store) => store.movies.movieLogo)
+
   const getMovieLogo = async () => {
     const data = await fetch(
       'https://api.themoviedb.org/3/movie/' + id + '/images',
@@ -13,14 +14,16 @@ const useMovieLogo = (id) => {
     )
     const json = await data.json()
 
-    const logo =
-      json.logos?.length > 0 ? json.logos[0] : null
+    // ✅ PICK PNG ONLY
+    const pngLogo = json.logos?.find(
+      (logo) => logo.file_path.endsWith(".png")
+    )
 
-    dispatch(addMovieLogo(logo))
+    dispatch(addMovieLogo(pngLogo || null))
   }
 
   useEffect(() => {
-  !logoData && getMovieLogo()
+    !logoData && id && getMovieLogo()
   }, [id])
 }
 

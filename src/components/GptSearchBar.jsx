@@ -52,32 +52,55 @@ const GptSearchBar = () => {
     )
   }
 
-  return (
-    <div
-      className="pt-32 md:pt-24
- flex justify-center relative z-20"
+ 
+return (
+  <div
+    className="
+      pt-28 sm:pt-32 md:pt-24
+      px-4 sm:px-6 md:px-0
+      flex justify-center relative z-20
+    "
+  >
+    <form
+      className="
+        w-full md:w-1/2 bg-black grid grid-cols-12
+        md:rounded-none rounded-xl overflow-hidden
+      "
+      onSubmit={(e) => e.preventDefault()}
     >
-      <form
-        className="w-full md:w-1/2 bg-black grid grid-cols-12"
-        onSubmit={(e) => e.preventDefault()}
-      >
-        <input
-          ref={searchText}
-          type="text"
-          className=" p-4 m-4 col-span-9 text-black bg-white"
-          placeholder={lang[langKey].gptSearchPlaceholder}
-        />
-        <button
-          type="button"
-          className="col-span-3 m-4 py-2 px-4 bg-red-700 text-white rounded-lg"
-          onClick={handleGptSearchClick}
-        >
-         
-          {lang[langKey].search}
-        </button>
-      </form>
-    </div>
-  )
-}
+     <input
+  ref={searchText}
+  type="text"
+  className="
+    col-span-9
+    h-12
+    p-4 m-0 sm:m-1 md:m-4
+    text-black bg-white
+    text-base sm:text-lg md:text-xl
+    placeholder-gray-600
+    outline-none focus:ring-2 focus:ring-red-600/50 md:focus:ring-0
+  "
+  placeholder={lang[langKey].gptSearchPlaceholder}
+/>
+<button
+  type="button"
+  className="
+    col-span-3
+    h-12
+    m-0 sm:m-1 md:m-4
+    py-3 sm:py-3.5 md:py-2 px-4 sm:px-5 md:px-4
+    bg-red-700 hover:bg-red-600 text-white
+    text-base sm:text-lg md:text-base
+    rounded-lg
+    font-medium
+  "
+  onClick={handleGptSearchClick}
+>
+  {lang[langKey].search}
+</button>
+
+    </form>
+  </div>
+)}
 
 export default GptSearchBar

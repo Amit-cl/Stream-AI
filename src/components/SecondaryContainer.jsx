@@ -10,17 +10,20 @@ const trending = movies.nowPlayingMovies
   : []
 
   return (
-    <div className='bg-black'>
-      <div className='bg-transparent backdrop-blur-0 -mt-35 relative z-40'>
-     <MovieList title="Now Playing" movies={movies.nowPlayingMovies} />
+   <div className="bg-black">
+  <div className="
+    -mt-8 sm:-mt-12 md:-mt-28 lg:-mt-35
+    relative z-40
+    pb-8 sm:pb-12 md:pb-16
+  ">
+    <MovieList title="Now Playing" movies={movies.nowPlayingMovies} />
+    <MovieList title="Top Rated" movies={movies.topRatedMovie} />
+    <MovieList title="Popular" movies={movies.popularMovies} />
+    <MovieList title="Trending" movies={trending} />
+    <MovieList title="Upcoming" movies={movies.upcomingMovie} />
+  </div>
+</div>
 
-<MovieList title="Top Rated" movies={movies.topRatedMovie} />
-<MovieList title="Popular" movies={movies.popularMovies} />
-
-
-<MovieList title="Trending" movies={trending} />
-<MovieList title="Upcoming" movies={movies.upcomingMovie} />
-    </div></div>
   )
 }
 
